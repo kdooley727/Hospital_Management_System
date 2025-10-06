@@ -1,6 +1,6 @@
-@ServerHub_HostAddress = http://localhost:5028
+@ChatHub_HostAddress = http://localhost:5063
 
-GET {{ServerHub_HostAddress}}/weatherforecast/
+GET {{ChatHub_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
