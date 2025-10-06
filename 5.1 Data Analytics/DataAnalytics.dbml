@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HMSCORE" Class="DataAnalyticsDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=localhost;Initial Catalog=HMSCORE;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="Hospital_Management_System.Properties.Settings" SettingsPropertyName="HMSCOREConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.PatientTableNew" Member="PatientTableNews">
+    <Type Name="PatientTableNew">
+      <Column Name="PatientID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Patient_FName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Patient_LName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Patient_Phone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Patient_Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Patient_Insurance" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="PatientTableNew_AppointTableNew" Member="AppointTableNews" ThisKey="PatientID" OtherKey="PatientID" Type="AppointTableNew" />
+      <Association Name="PatientTableNew_Ailment" Member="Ailments" ThisKey="PatientID" OtherKey="PatientID" Type="Ailment" />
+      <Association Name="PatientTableNew_MedicationsUsage" Member="MedicationsUsages" ThisKey="PatientID" OtherKey="PatientID" Type="MedicationsUsage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AppointTableNew" Member="AppointTableNews">
+    <Type Name="AppointTableNew">
+      <Column Name="AppID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AppDay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="AppTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="PatientID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="PatientTableNew_AppointTableNew" Member="PatientTableNew" ThisKey="PatientID" OtherKey="PatientID" Type="PatientTableNew" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Ailments" Member="Ailments">
+    <Type Name="Ailment">
+      <Column Name="AilmentID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PatientID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AilmentDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="AilmentDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="PatientTableNew_Ailment" Member="PatientTableNew" ThisKey="PatientID" OtherKey="PatientID" Type="PatientTableNew" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MedicationsAndSupplies" Member="MedicationsAndSupplies">
+    <Type Name="MedicationsAndSupply">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Category" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Association Name="MedicationsAndSupply_MedicationsUsage" Member="MedicationsUsages" ThisKey="ID" OtherKey="MedicationID" Type="MedicationsUsage" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MedicationsUsage" Member="MedicationsUsages">
+    <Type Name="MedicationsUsage">
+      <Column Name="UsageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MedicationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PatientID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UsageDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="QuantityUsed" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Notes" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="MedicationsAndSupply_MedicationsUsage" Member="MedicationsAndSupply" ThisKey="MedicationID" OtherKey="ID" Type="MedicationsAndSupply" IsForeignKey="true" />
+      <Association Name="PatientTableNew_MedicationsUsage" Member="PatientTableNew" ThisKey="PatientID" OtherKey="PatientID" Type="PatientTableNew" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

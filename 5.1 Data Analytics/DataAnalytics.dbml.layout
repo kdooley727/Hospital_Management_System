@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataAnalytics">
+  <DataContextMoniker Name="/DataAnalyticsDataContext" />
+  <nestedChildShapes>
+    <classShape Id="3fe25bea-848b-4ad4-b840-211e2849ebae" absoluteBounds="3, 0.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/DataAnalyticsDataContext/PatientTableNew" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4937ea10-6068-4670-90f0-db8dd223441e" absoluteBounds="3.0149999999999997, 0.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fd895e74-0763-46a2-a97d-55147311ea0c" absoluteBounds="0.5, 0.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataAnalyticsDataContext/AppointTableNew" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1fd91ec1-989d-4535-abf4-b9063b1e0acd" absoluteBounds="0.51500000000000012, 1.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3 : 1.41429768880208); (2.5 : 1.41429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataAnalyticsDataContext/PatientTableNew/PatientTableNew_AppointTableNew" />
+      <nodes>
+        <classShapeMoniker Id="3fe25bea-848b-4ad4-b840-211e2849ebae" />
+        <classShapeMoniker Id="fd895e74-0763-46a2-a97d-55147311ea0c" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="fa4e378e-960c-4f26-ac6c-f82b99fa2e05" absoluteBounds="6.25, 0.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataAnalyticsDataContext/Ailment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f8a41edc-31aa-43fa-9088-655605aa5680" absoluteBounds="6.265, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5 : 1.28929768880208); (6.25 : 1.28929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataAnalyticsDataContext/PatientTableNew/PatientTableNew_Ailment" />
+      <nodes>
+        <classShapeMoniker Id="3fe25bea-848b-4ad4-b840-211e2849ebae" />
+        <classShapeMoniker Id="fa4e378e-960c-4f26-ac6c-f82b99fa2e05" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="100c1713-aecd-4f35-a758-f45de55f010e" absoluteBounds="2.875, 5.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/DataAnalyticsDataContext/MedicationsAndSupply" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6af8f1bb-9047-4c52-b988-eb325a1bf512" absoluteBounds="2.8899999999999997, 5.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="66afc3bb-6819-41b2-893d-685557ac8834" absoluteBounds="7.75, 4, 2, 1.9631982421875">
+      <DataClassMoniker Name="/DataAnalyticsDataContext/MedicationsUsage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a02aaf7f-17a6-4d59-b750-8ea8338f33ba" absoluteBounds="7.7650000000000006, 4.46, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(4.875 : 5.73159912109375); (7.75 : 5.73159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataAnalyticsDataContext/MedicationsAndSupply/MedicationsAndSupply_MedicationsUsage" />
+      <nodes>
+        <classShapeMoniker Id="100c1713-aecd-4f35-a758-f45de55f010e" />
+        <classShapeMoniker Id="66afc3bb-6819-41b2-893d-685557ac8834" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.96875 : 2.4631982421875); (4.96875 : 4.71875); (7.75 : 4.71875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataAnalyticsDataContext/PatientTableNew/PatientTableNew_MedicationsUsage" />
+      <nodes>
+        <classShapeMoniker Id="3fe25bea-848b-4ad4-b840-211e2849ebae" />
+        <classShapeMoniker Id="66afc3bb-6819-41b2-893d-685557ac8834" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
